@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Prueba</title>
+
+    <style>
+        body {
+            background: #101010;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4dd6ff;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1b1b1b;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #4dd6ff55;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            color: #92eaff;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            background: #222;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 18px;
+            background: #4dd6ff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #32bfe8;
+        }
+
+        #resultado {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #161616;
+            border-radius: 10px;
+            display: none;
+            border-left: 4px solid #4dd6ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Formulario de Prueba</h1>
+
+    <form id="formPrueba">
+
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label>Edad:</label>
+        <input type="number" id="edad" min="1" required>
+
+        <label>Número favorito:</label>
+        <input type="number" id="numero" required>
+
+        <button type="submit">Enviar Datos</button>
+
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("formPrueba").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let nombre = document.getElementById("nombre").value.trim();
+            let edad = document.getElementById("edad").value;
+            let numero = document.getElementById("numero").value;
+
+            let mensajeEdad = edad >= 18 ? "Sos mayor de edad" : "Sos menor de edad";
+
+            let plantilla = `
+                <h2>Resultados</h2>
+                <p><strong>Nombre:</strong> ${nombre}</p>
+                <p><strong>Edad:</strong> ${edad} (${mensajeEdad})</p>
+                <p><strong>Número favorito:</strong> ${numero}</p>
+            `;
+
+            const res = document.getElementById("resultado");
+            res.innerHTML = plantilla;
+            res.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
