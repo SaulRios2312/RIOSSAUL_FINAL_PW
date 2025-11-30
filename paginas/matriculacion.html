@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Matriculación</title>
+
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00eaff;
+        }
+
+        form {
+            max-width: 500px;
+            background: #1a1a1a;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00eaff55;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #7deaff;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            margin-top: 5px;
+            background: #222;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #00eaff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00c4cc;
+        }
+
+        #resultado {
+            margin-top: 30px;
+            background: #1d1d1d;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulario de Matriculación</h1>
+
+    <form id="formulario">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" required>
+
+        <label>Apellido:</label>
+        <input type="text" id="apellido" required>
+
+        <label>Edad:</label>
+        <input type="number" id="edad" min="1" required>
+
+        <label>Curso:</label>
+        <select id="curso">
+            <option value="Informática">Informática</option>
+            <option value="Administración">Administración</option>
+            <option value="Contabilidad">Contabilidad</option>
+            <option value="Marketing">Marketing</option>
+        </select>
+
+        <label>Correo:</label>
+        <input type="email" id="correo" required>
+
+        <button type="submit">Enviar Matriculación</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(e){
+            e.preventDefault();
+
+            let nombre = document.getElementById("nombre").value.trim();
+            let apellido = document.getElementById("apellido").value.trim();
+            let edad = document.getElementById("edad").value;
+            let curso = document.getElementById("curso").value;
+            let correo = document.getElementById("correo").value.trim();
+
+            if (edad < 1) {
+                alert("La edad no puede ser menor a 1.");
+                return;
+            }
+
+            let bloque = `
+                <h2>Datos Registrados</h2>
+                <p><strong>Nombre:</strong> ${nombre}</p>
+                <p><strong>Apellido:</strong> ${apellido}</p>
+                <p><strong>Edad:</strong> ${edad}</p>
+                <p><strong>Curso:</strong> ${curso}</p>
+                <p><strong>Correo:</strong> ${correo}</p>
+            `;
+
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = bloque;
+            resultado.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
