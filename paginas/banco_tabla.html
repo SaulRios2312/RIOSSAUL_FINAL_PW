@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movimientos Bancarios</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <script defer src="../js/calculos.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Movimientos Bancarios</h1>
+    <p>Tabla con los últimos movimientos de tu cuenta.</p>
+  </header>
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Descripción</th>
+          <th>Tipo</th>
+          <th>Monto</th>
+          <th>Saldo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="mostrarMovimiento(this)">
+          <td>2025-11-28</td>
+          <td>Depósito</td>
+          <td>Crédito</td>
+          <td>$500</td>
+          <td>$1500</td>
+        </tr>
+        <tr onclick="mostrarMovimiento(this)">
+          <td>2025-11-27</td>
+          <td>Pago Servicios</td>
+          <td>Débito</td>
+          <td>$120</td>
+          <td>$1000</td>
+        </tr>
+        <tr onclick="mostrarMovimiento(this)">
+          <td>2025-11-26</td>
+          <td>Transferencia</td>
+          <td>Débito</td>
+          <td>$200</td>
+          <td>$1120</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</body>
+</html>
