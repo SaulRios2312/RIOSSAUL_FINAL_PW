@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mini Red Social — Multimedia</title>
+<link rel="stylesheet" href="../css/estilos.css">
+<style>
+  /* Estilos específicos de la página (complementan estilos.css) */
+  .page {
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 0 18px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #eaf6ff;
+    margin-bottom: 6px;
+  }
+  p.lead {
+    text-align: center;
+    color: #bfcfe0;
+    margin-bottom: 22px;
+  }
+
+  .feed {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  @media(min-width:900px){
+    .feed {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .post {
+    background: #121212;
+    border: 1px solid #202020;
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .media-wrap {
+    background: #0f0f0f;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+  }
+
+  iframe, video, img, audio {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .post h2 {
+    margin: 0;
+    color: #e6f2ff;
+    font-size: 1.05rem;
+  }
+
+  .meta {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    color:#9fb0c9;
+    font-size:0.92rem;
+  }
+
+  .like-group {
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
+
+  .like-btn {
+    display:inline-flex;
+    gap:8px;
+    align-items:center;
+    padding:8px 10px;
+    border-radius:8px;
+    cursor:pointer;
+    user-select:none;
+    background: #111;
+    border: 1px solid #222;
+    color: #cfdcea;
+    transition: .16s;
+  }
+
+  .like-btn:hover { transform: translateY(-2px); }
+
+  .like-btn .icon {
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+
+  .like-btn.liked {
+    background: linear-gradient(90deg,#4f46e5,#6366f1);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(99,102,241,0.12);
+  }
+
+  .count {
+    min-width: 30px;
+    text-align: center;
+    font-weight:600;
+  }
+
+  .caption { color:#bfcfe0; font-size:0.95rem; }
+
+  .back {
+    margin-top: 18px;
+    text-align: center;
+  }
+  .back a { color:#8fb8ff; text-decoration: none; }
+</style>
+</head>
+<body>
+
+  <div class="page">
+    <h1>Mini Red Social</h1>
+    <p class="lead">Publicaciones multimedia — dale like a cada elemento. Los likes se guardan en tu navegador.</p>
+
+    <main class="feed">
+
+      <!-- Post 1: Video (YouTube embed) -->
+      <article class="post" id="post-video">
+        <h2>Video destacado</h2>
+        <div class="media-wrap" aria-hidden="false">
+          <!-- YouTube embed seguro (HTTPS) -->
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ysz5S6PUM-U"
+            title="Video embed" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="caption">Un pequeño demo de video — miralo y dale like si te gustó.</div>
+
+        <div class="meta">
+          <div class="like-group">
+            <button class="like-btn" data-key="rs_video_1" aria-pressed="false" onclick="toggleLike(event)">
+              <span class="icon">👍</span>
+              <span class="label">Me gusta</span>
+              <span class="count" id="count-rs_video_1">0</span>
+            </button>
+          </div>
+
+          <div class="info">Publicado: 2025-11-01</div>
+        </div>
+      </article>
+
+      <!-- Post 2: Imagen -->
+      <article class="post" id="post-imagen">
+        <h2>Imagen destacada</h2>
+
+        <div class="media-wrap">
+          <!-- Imagen local: ../statics/images/redsocial_img1.jpg -->
+          <img src="../statics/images/redsocial_img1.jpg" alt="Publicación: paisaje" id="img-post-1">
+        </div>
+
+        <div class="caption">Fotografía tomada por el equipo. Un paisaje tranquilo.</div>
+
+        <div class="meta">
+          <div class="like-group">
+            <button class="like-btn" data-key="rs_image_1" aria-pressed="false" onclick="toggleLike(event)">
+              <span class="icon">❤️</span>
+              <span class="label">Me gusta</span>
+              <span class="count" id="count-rs_image_1">0</span>
+            </button>
+          </div>
+
+          <div class="info">Publicado: 2025-10-20</div>
+        </div>
+      </article>
+
+      <!-- Post 3: Audio -->
+      <article class="post" id="post-audio">
+        <h2>Audio — pista corta</h2>
+
+        <div class="media-wrap" style="min-height:120px; padding:18px;">
+          <!-- Reproductor de audio: usa /statics/audio/track1.mp3 -->
+          <audio controls preload="none" style="width:100%;">
+            <source src="../statics/audio/track1.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio.
+          </audio>
+        </div>
+
+        <div class="caption">Pequeña muestra de audio. Escúchala y valorá la pista con un like.</div>
+
+        <div class="meta">
+          <div class="like-group">
+            <button class="like-btn" data-key="rs_audio_1" aria-pressed="false" onclick="toggleLike(event)">
+              <span class="icon">🎧</span>
+              <span class="label">Me gusta</span>
+              <span class="count" id="count-rs_audio_1">0</span>
+            </button>
+          </div>
+
+          <div class="info">Publicado: 2025-09-30</div>
+        </div>
+      </article>
+
+    </main>
+
+    <div class="back">
+      <a href="../index.html">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+<script>
+/*
+  Lógica de likes (persistente en localStorage)
+  - Cada botón tiene data-key con la clave de storage
+  - Se guarda un objeto: {count: number, liked: boolean}
+  - Funciones:
+      initLikes() -> carga estados iniciales
+      toggleLike(event) -> alterna like/unlike y actualiza UI + storage
+*/
+
+(function(){
+  const defaultState = { count: 0, liked: false };
+
+  function readState(key){
+    try {
+      const raw = localStorage.getItem(key);
+      if(!raw) return {...defaultState};
+      return JSON.parse(raw);
+    } catch(e){
+      console.warn("Error leyendo localStorage", e);
+      return {...defaultState};
+    }
+  }
+
+  function writeState(key, state){
+    try {
+      localStorage.setItem(key, JSON.stringify(state));
+    } catch(e){
+      console.warn("Error guardando localStorage", e);
+    }
+  }
+
+  // Inicializa los contadores y clases en la UI
+  function initLikes(){
+    document.querySelectorAll('.like-btn').forEach(btn => {
+      const key = btn.dataset.key;
+      const state = readState(key);
+      const countEl = document.getElementById('count-' + key);
+      if(countEl) countEl.textContent = state.count;
+      if(state.liked){
+        btn.classList.add('liked');
+        btn.setAttribute('aria-pressed', 'true');
+      } else {
+        btn.classList.remove('liked');
+        btn.setAttribute('aria-pressed', 'false');
+      }
+    });
+  }
+
+  // Expuesta globalmente para el onclick inline
+  window.toggleLike = function (evt) {
+    const btn = evt.currentTarget;
+    const key = btn.dataset.key;
+    if(!key) return;
+
+    const state = readState(key);
+
+    // Alternar
+    if(state.liked){
+      state.liked = false;
+      state.count = Math.max(0, state.count - 1);
+    } else {
+      state.liked = true;
+      state.count = state.count + 1;
+    }
+
+    // Guardar y actualizar UI
+    writeState(key, state);
+    const countEl = document.getElementById('count-' + key);
+    if(countEl) countEl.textContent = state.count;
+
+    if(state.liked){
+      btn.classList.add('liked');
+      btn.setAttribute('aria-pressed', 'true');
+    } else {
+      btn.classList.remove('liked');
+      btn.setAttribute('aria-pressed', 'false');
+    }
+  };
+
+  // Inicialización cuando DOM esté listo
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initLikes);
+  } else {
+    initLikes();
+  }
+})();
+</script>
+
+</body>
+  </html>
