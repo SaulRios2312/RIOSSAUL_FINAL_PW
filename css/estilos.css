@@ -1,0 +1,383 @@
+/* ------------------------------ */
+/* RESET BÁSICO */
+/* ------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #0d0d0d;
+  color: #e5e5e5;
+  font-family: "Inter", Arial, sans-serif;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: #68a0ff;
+  text-decoration: none;
+}
+a:hover {
+  color: #8bb8ff;
+}
+
+/* Contenedores */
+.container {
+  width: 92%;
+  max-width: 1280px;
+  margin: auto;
+}
+
+/* ------------------------------ */
+/* HEADER Y MENÚ */
+/* ------------------------------ */
+
+.site-header {
+  background: #121212;
+  border-bottom: 1px solid #1f1f1f;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #eaeaea;
+}
+
+.nav {
+  display: flex;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu > li {
+  position: relative;
+}
+
+/* Botón principal */
+.menu > li > a,
+.dropbtn {
+  background: none;
+  border: none;
+  color: #eeeeee;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* Hover */
+.menu > li > a:hover,
+.dropbtn:hover {
+  color: #b5b5b5;
+}
+
+/* Dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #1a1a1a;
+  border: 1px solid #262626;
+  border-radius: 6px;
+  padding: 6px 0;
+  min-width: 180px;
+  z-index: 10;
+}
+
+.dropdown li a {
+  display: block;
+  padding: 10px 15px;
+  color: #dcdcdc;
+  font-size: 0.9rem;
+}
+
+.dropdown li a:hover {
+  background: #252525;
+}
+
+/* Cuando está abierto */
+.has-dropdown.open .dropdown {
+  display: block;
+}
+
+/* ------------------------------ */
+/* HAMBURGER EN MÓVIL */
+/* ------------------------------ */
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #eaeaea;
+  cursor: pointer;
+}
+
+/* MODO MÓVIL */
+@media (max-width: 800px) {
+  .nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #111;
+    width: 240px;
+    border-left: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 20px 0;
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-open {
+    display: flex !important;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dropdown {
+    position: static;
+    background: #141414;
+    border: none;
+    padding: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* ------------------------------ */
+/* MAIN */
+/* ------------------------------ */
+
+.main-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Bienvenida */
+.welcome-card {
+  background: #131313;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #1f1f1f;
+}
+
+.welcome-card h1 {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  color: #f1f1f1;
+}
+
+.lead {
+  color: #c6c6c6;
+  margin-bottom: 20px;
+}
+
+/* Formulario bienvenida */
+.welcome-form h2 {
+  margin-bottom: 15px;
+  color: #ededed;
+}
+
+.welcome-form .row {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-form input {
+  background: #1b1b1b;
+  border: 1px solid #2a2a2a;
+  padding: 10px;
+  border-radius: 6px;
+  color: #e5e5e5;
+}
+
+.welcome-form input:focus {
+  outline: 2px solid #3c6aff;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.btn.primary {
+  background: #3c6aff;
+  border: none;
+  color: white;
+}
+.btn.primary:hover {
+  background: #5b85ff;
+}
+
+.btn.ghost {
+  background: none;
+  border: 1px solid #3c3c3c;
+  color: #ccc;
+}
+.btn.ghost:hover {
+  background: #2a2a2a;
+}
+
+/* Resultado del saludo */
+.saludo {
+  margin-top: 15px;
+  background: #141414;
+  border: 1px solid #222;
+  padding: 15px;
+  border-radius: 6px;
+}
+.hidden {
+  display: none;
+}
+
+/* ------------------------------ */
+/* SITE MAP (descripción) */
+/* ------------------------------ */
+
+.site-map {
+  background: #141414;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #1f1f1f;
+}
+
+.site-map h3 {
+  margin-bottom: 20px;
+}
+
+.map-block {
+  margin-bottom: 15px;
+  border-left: 3px solid #3c6aff;
+  padding-left: 12px;
+}
+.map-block h4 {
+  margin-bottom: 5px;
+}
+.map-block p {
+  font-size: 0.9rem;
+  color: #c9c9c9;
+}
+
+/* ------------------------------ */
+/* FOOTER */
+/* ------------------------------ */
+
+.site-footer {
+  margin-top: 50px;
+  padding: 25px 0;
+  background: #111;
+  border-top: 1px solid #1d1d1d;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: #bbb;
+}
+
+.footer-inner nav a {
+  color: #8fb0ff;
+  margin: 0 5px;
+}
+.footer-inner nav a:hover {
+  color: #b8ccff;
+}
+
+/* ------------------------------ */
+/* UTILIDADES */
+/* ------------------------------ */
+
+.text-center {
+  text-align: center;
+}
+
+.card {
+  background: #151515;
+  border: 1px solid #222;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.table-dark {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-dark th, .table-dark td {
+  padding: 10px;
+  border: 1px solid #2a2a2a;
+}
+.table-dark th {
+  background: #1f1f1f;
+}
+.table-dark tr:nth-child(even) {
+  background: #131313;
+}
+
+.button-like {
+  background: none;
+  border: 1px solid #333;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #ccc;
+}
+.button-like.liked {
+  background: #3c6aff;
+  color: #fff;
+  border-color: #3c6aff;
+}
+
+/* Tarjetas responsivas */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 800px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  }
