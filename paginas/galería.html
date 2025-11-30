@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería Avanzada</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <script defer src="../js/calculos.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Galería Avanzada</h1>
+    <p>Explora nuestra galería de imágenes con descripciones.</p>
+  </header>
+
+  <section class="galeria-avanzada">
+    <div class="imagen">
+      <img src="../statics/images/galeria1.jpg" alt="Paisaje 1" onclick="ampliarImagen(this)">
+      <h3>Paisaje 1</h3>
+      <p>Un hermoso paisaje natural.</p>
+    </div>
+    <div class="imagen">
+      <img src="../statics/images/galeria2.jpg" alt="Paisaje 2" onclick="ampliarImagen(this)">
+      <h3>Paisaje 2</h3>
+      <p>Montañas al amanecer.</p>
+    </div>
+    <div class="imagen">
+      <img src="../statics/images/galeria3.jpg" alt="Paisaje 3" onclick="ampliarImagen(this)">
+      <h3>Paisaje 3</h3>
+      <p>Lago cristalino en la montaña.</p>
+    </div>
+  </section>
+
+  <!-- Overlay para ampliar imágenes -->
+  <div id="overlay" onclick="cerrarOverlay()">
+    <img id="imgAmpliada" src="" alt="Ampliada">
+  </div>
+
+</body>
+</html>
