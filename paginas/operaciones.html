@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operaciones Matemáticas</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <script defer src="../js/calculos.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Operaciones Matemáticas</h1>
+    <p>Realiza cálculos de manera rápida y sencilla.</p>
+  </header>
+
+  <section class="operaciones-container">
+
+    <div class="operaciones-card">
+      <label>Número 1</label>
+      <input type="number" id="num1">
+
+      <label>Número 2</label>
+      <input type="number" id="num2">
+
+      <label>Operación</label>
+      <select id="operacion">
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multiplicacion">Multiplicación</option>
+        <option value="division">División</option>
+        <option value="potencia">Potencia</option>
+        <option value="porcentaje">Porcentaje</option>
+      </select>
+
+      <button onclick="calcular()">Calcular</button>
+
+      <div id="resultadoOperacion" class="resultado"></div>
+    </div>
+
+  </section>
+
+</body>
+</html>
