@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f3f3;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            resize: none;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .comment {
+            background: #e8e8e8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Comentarios</h1>
+
+    <div class="container">
+        <textarea id="comentario" placeholder="Escribe un comentario..."></textarea>
+        <button onclick="agregarComentario()">Publicar</button>
+
+        <h3>Comentarios publicados:</h3>
+        <div id="listaComentarios"></div>
+    </div>
+
+    <script>
+        function agregarComentario() {
+            const texto = document.getElementById("comentario").value.trim();
+            if(texto === "") {
+                alert("Escribe algo antes de publicar.");
+                return;
+            }
+
+            const div = document.createElement("div");
+            div.className = "comment";
+            div.textContent = texto;
+
+            document.getElementById("listaComentarios").appendChild(div);
+
+            document.getElementById("comentario").value = "";
+        }
+    </script>
+
+</body>
+</html>
