@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia - Imágenes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .galeria img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h1>Galería de Imágenes</h1>
+
+<div class="galeria">
+    <img src="https://via.placeholder.com/300" alt="Imagen 1">
+    <img src="https://via.placeholder.com/300" alt="Imagen 2">
+    <img src="https://via.placeholder.com/300" alt="Imagen 3">
+    <img src="https://via.placeholder.com/300" alt="Imagen 4">
+</div>
+
+</body>
+</html>
