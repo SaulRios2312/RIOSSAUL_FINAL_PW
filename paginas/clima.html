@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <script defer src="../js/apis.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Clima - OpenWeather</h1>
+    <p>Consulta el clima de cualquier ciudad del mundo.</p>
+  </header>
+
+  <section class="clima-container">
+
+    <div class="clima-card">
+      <label>Ciudad</label>
+      <input type="text" id="ciudad" placeholder="Ej: Asunción">
+
+      <button onclick="buscarClima()">Buscar</button>
+
+      <div id="resultadoClima" class="resultado"></div>
+    </div>
+
+  </section>
+
+</body>
+</html>
